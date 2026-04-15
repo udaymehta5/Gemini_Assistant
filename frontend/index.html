@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI Content Studio · Gemini</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="bg-gradient" aria-hidden="true"></div>
+  <div class="layout">
+    <header class="header">
+      <div class="brand">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <div>
+          <h1>AI Content Studio</h1>
+          <p class="tagline">Powered by Google Gemini — draft blogs, emails, social posts, and more.</p>
+        </div>
+      </div>
+      <span class="pill" id="healthPill">Checking API…</span>
+    </header>
+
+    <main class="grid">
+      <section class="panel panel-form" aria-labelledby="form-title">
+        <h2 id="form-title" class="panel-title">What should we write?</h2>
+        <form id="genForm" class="form">
+          <label class="field">
+            <span class="label">Topic or brief <span class="req">*</span></span>
+            <textarea
+              id="topic"
+              name="topic"
+              rows="4"
+              required
+              placeholder="e.g. Launch post for a habit-tracking app aimed at busy parents"
+            ></textarea>
+          </label>
+
+          <div class="row-2">
+            <label class="field">
+              <span class="label">Content type</span>
+              <select id="type" name="type">
+                <option value="blog">Blog post</option>
+                <option value="social">Social media</option>
+                <option value="email">Email</option>
+                <option value="product">Product / landing copy</option>
+                <option value="creative">Creative</option>
+                <option value="summary">Summary</option>
+                <option value="code">Code / technical</option>
+              </select>
+            </label>
+            <label class="field">
+              <span class="label">Length</span>
+              <select id="length" name="length">
+                <option value="short">Short</option>
+                <option value="medium" selected>Medium</option>
+                <option value="long">Long</option>
+              </select>
+            </label>
+          </div>
+
+          <div class="row-2">
+            <label class="field">
+              <span class="label">Tone</span>
+              <select id="tone" name="tone">
+                <option value="professional">Professional</option>
+                <option value="friendly">Friendly</option>
+                <option value="witty">Witty</option>
+                <option value="urgent">Urgent / sales</option>
+                <option value="minimal">Minimal / plain</option>
+                <option value="academic">Academic</option>
+              </select>
+            </label>
+            <label class="field">
+              <span class="label">Audience</span>
+              <input
+                id="audience"
+                name="audience"
+                type="text"
+                placeholder="e.g. first-time founders"
+                value="general readers"
+              />
+            </label>
+          </div>
+
+          <label class="field">
+            <span class="label">Extra instructions <span class="optional">optional</span></span>
+            <input
+              id="extra"
+              name="extra"
+              type="text"
+              placeholder="e.g. include a CTA to sign up for a waitlist"
+            />
+          </label>
+
+          <button type="submit" class="btn-primary" id="submitBtn">
+            <span class="btn-text">Generate</span>
+            <span class="btn-spinner" hidden aria-hidden="true"></span>
+          </button>
+        </form>
+      </section>
+
+      <section class="panel panel-output" aria-labelledby="output-title">
+        <div class="output-header">
+          <h2 id="output-title" class="panel-title">Output</h2>
+          <button type="button" class="btn-ghost" id="copyBtn" disabled>Copy</button>
+        </div>
+        <div class="output-shell">
+          <p class="placeholder" id="placeholder">Your generated content will appear here.</p>
+          <pre class="output" id="output" hidden></pre>
+        </div>
+        <p class="error" id="error" hidden role="alert"></p>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <span>Model: <code id="modelLabel">—</code></span>
+    </footer>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>
