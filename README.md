@@ -2,7 +2,7 @@
 
 A simple AI-powered web application built using the Gemini API, with a custom frontend designed using HTML, CSS, and JavaScript. This project allows users to interact with an AI model and get responses to virtually any query in real time.
 
-🚀 Features
+🚀 Features-
 💬 Ask anything — general questions, coding help, ideas, etc.
 ⚡ Fast responses powered by Gemini API
 🎨 Clean and responsive UI
